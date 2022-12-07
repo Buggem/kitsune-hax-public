@@ -30,7 +30,7 @@ function handleFiles(event) {
         var save = JSON.parse(event.target.result);
         for(let key of Object.keys(localStorage)) {
             if(key.startsWith(code)) {
-                localStorage.setItem(key, undefined);
+                localStorage.removeItem(key);
             }
         }
         for(let key of Object.keys(save)) {
