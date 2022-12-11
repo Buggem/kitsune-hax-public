@@ -28,6 +28,11 @@ function handleFiles(event) {
     var reader = new FileReader();
     reader.addEventListener('load', function(event) {
         var save = JSON.parse(event.target.result);
+        for(let key of Object.keys(localStorage)) {
+            if(key.startsWith(code)) {
+                localStorage.removeItem(key);
+            }
+        }
         for(let key of Object.keys(save)) {
             localStorage.setItem(key, save[key]);
         }
